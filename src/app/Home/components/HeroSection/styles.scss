@@ -1,0 +1,219 @@
+.hero-section {
+    position: relative;
+    overflow: hidden;
+
+    .hero-section-wrapper {
+        .hero-container {
+            display: grid;
+            grid-template-columns: 60% 40%;
+            height: 500px;
+            max-height: 500px;
+
+            .description-section {
+                height: inherit;
+
+                h2,
+                h3,
+                h4 {
+                    color: #FFF;
+                    font-weight: bold;
+                    font-family: Cormorant Garamond;
+                }
+
+                h3 {
+                    font-size: 45px;
+                    
+                }
+
+                h4 {
+                    font-size: 40px;
+                    display: block;
+                    word-break: keep-all;
+                    font-style: italic;
+                    
+                }
+
+                h2 {
+                    font-size: 80px;
+                    font-style: italic;
+
+                    .last-name {
+                        position: relative;
+
+                        &::after {
+                            position: absolute;
+                            content: "";
+                            z-index: -1;
+                            background: url('../../../../assets/images/home/wave-shape.webp');
+                            width: 100%;
+                            height: 20px;
+                            left: 0;
+                            bottom: -2px;
+                            background-repeat: no-repeat;
+                        }
+                    }
+                }
+
+                p {
+                    margin: 10px 0px;
+                    font-size: 20px;
+                }
+
+                .button-section {
+                    display: flex;
+                    align-items: center;
+                    // margin: ;
+                    gap: 10px;
+
+                    a {
+                        background-color: #001C55;
+                        color: #fff;
+                        font-size: 1rem;
+                        padding: 10px 20px;
+                        display: flex;
+                        align-items: center;
+                        border: 1px solid #1D1B34;
+                        border-radius: 5px;
+                        margin-right: 20px;
+                        cursor: pointer;
+                        text-decoration: none;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        background-color: #EDF9FE;
+                        color: #1D1B34;
+
+                        &:hover {
+                            background-color: transparent;
+                            color: #FFF;
+                            border: 1px solid #FFF;
+
+                        }
+                    }
+                }
+            }
+
+            .image-section {
+                $img-size: 500px;
+
+                height: inherit;
+                position: relative;
+
+                .img-container {
+                    height: $img-size;
+
+                    img {
+                        height: 100%;
+                        width: calc(100% - 50px);
+
+                    }
+
+                    .social-section {
+                        $social-size: calc($img-size - 80px);
+                        position: absolute;
+                        height: $social-size;
+                        width: $social-size;
+                        right: 0px;
+                        top: 50%;
+                        z-index: -1;
+                        border-radius: 50%;
+                        transform: translateY(-50%);
+                        border: 1px solid rgba(255, 255, 255, .25);
+
+                        &::before {
+                            position: absolute;
+                            content: "";
+                            left: 0px;
+                            top: 0px;
+                            background-color: var(--background);
+                            height: 100%;
+                            width: 50%;
+                            z-index: 2;
+                        }
+
+                        &::after {
+                            $social-after-size: calc($social-size - 60px);
+                            position: absolute;
+                            content: "";
+                            left: 0px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            height: $social-after-size;
+                            width: $social-after-size;
+                            border-radius: 50%;
+                            border: 1px solid rgba(255, 255, 255, 0.102);
+                            z-index: 1;
+
+                        }
+
+                        .social-inner-section {
+                            height: 100%;
+                            width: 100%;
+                            border-radius: 50%;
+                            position: relative;
+                            background-color: red;
+                            z-index: 5;
+                            display: none;
+
+                            a {
+                                position: absolute;
+                                right: 0px;
+                                top: 0px;
+                                height: 50px;
+                                width: 50px;
+                                border-radius: 50%;
+                                background-color: var(--background);
+                                border: 1px solid #FFF;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                cursor: pointer;
+
+                                svg {
+                                    height: 20px;
+                                    width: 20px;
+                                    color: #FFF;
+                                }
+
+                                &:hover {
+                                    background-color: #FFF !important;
+                                }
+
+                                &:nth-child(1) {
+                                    right: 90px;
+                                    top: 0px;
+                                }
+
+                                &:nth-child(2) {
+                                    right: -5px;
+                                    top: 100px;
+                                }
+
+                                &:nth-child(3) {
+                                    right: -15px;
+                                    top: 250px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .background-them {
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    left: 0px;
+                    top: 0px;
+                    z-index: -1;
+
+                    svg {
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+
+
+            }
+        }
+    }
+}

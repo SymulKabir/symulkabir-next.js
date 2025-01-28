@@ -1,5 +1,6 @@
 :root {
   --background: #252734;
+  --secondary-background: #2a2b38;
   --foreground: #858792;
 }
 @font-face {
@@ -48,13 +49,26 @@
 
 @font-face {
   font-family: "Cormorant Garamond";
+  font-style: Medium;
+  font-weight: 500;
+  src: local("Cormorant Garamond"), url("../assets/fonts/Cormorant_Garamond/CormorantGaramond-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Cormorant Garamond";
   font-style: Bold;
   font-weight: 700;
   src: local("Cormorant Garamond"), url("../assets/fonts/Cormorant_Garamond/CormorantGaramond-Bold.ttf") format("truetype");
 }
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: italic;
+  font-weight: 700;
+  src: local("Cormorant Garamond"), url("../assets/fonts/Cormorant_Garamond/CormorantGaramond-BoldItalic.ttf") format("truetype");
+}
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #252734; 
+    /* --background: #252734;  */
+    /* --foreground: #2a2c39;  */
   }
 }
 

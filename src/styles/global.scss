@@ -1,6 +1,62 @@
-.container{
+$section-gap: 40px;
+
+.container {
     width: calc(100% - 60px);
     max-width: 1200px;
     display: block;
     margin: 0px auto;
+}
+
+.section-title {
+    h2 {
+        position: relative;
+        padding-left: 20px;
+        color: #858792;
+        font-size: 18px;
+        font-weight: 500;
+
+        &::before {
+            position: absolute;
+            content: "||";
+            color: inherit;
+            left: 0px;
+            top: 0px;
+            height: 100px;
+            width: max-content;
+        }
+    }
+
+    h3 {
+        font-size: 40px;
+        color: #FFF;
+        font-weight: 700;
+        font-family: "Cormorant Garamond", serif;
+
+    }
+}
+
+.section-mx {
+    margin: $section-gap 0px;
+}
+
+.section-my {
+    margin-top: $section-gap;
+}
+
+.section-mb {
+    margin-bottom: $section-gap;
+
+}
+
+.section-px {
+    padding: $section-gap 0px;
+}
+
+.section-py {
+    padding-top: $section-gap;
+}
+
+.section-pb {
+    padding-bottom: $section-gap;
+
 }

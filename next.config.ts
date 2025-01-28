@@ -1,7 +1,75 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  /* config options here */
+ 
+const nextConfig: NextConfig =  {
+  reactStrictMode: true,
+  // output: 'export',
+  images: {
+      unoptimized: true,
+      formats: ["image/avif", "image/webp"],
+      remotePatterns: [
+          {
+              protocol: "http",
+              hostname: "localhost",
+              port: "5001",
+              pathname: "/**"
+          },
+          {
+              protocol: "http",
+              hostname: "server.dainikpatrapatrika.com",
+              port: "",
+              pathname: "/**"
+          },
+          {
+              protocol: "https",
+              hostname: "server.dainikpatrapatrika.com",
+              port: "",
+              pathname: "/**"
+          },
+          {
+              protocol: "https",
+              hostname: "i.ytimg.com",
+              port: "",
+              pathname: "/**"
+          },
+          {
+              protocol: "https",
+              hostname: "s0.2mdn.net",
+              port: "",
+              pathname: "/**"
+          },
+          {
+              protocol: "https",
+              hostname: "tpc.googlesyndication.com",
+              port: "",
+              pathname: "/**"
+          },
+          {
+              protocol: "https",
+              hostname: "campuslive24.com",
+              port: "",
+              pathname: "/**"
+          },
+          {
+              protocol: "https",
+              hostname: 'www.campuslive24.com',
+              port: "",
+              pathname: "/**"
+          },
+          {
+              protocol: "https",
+              hostname: 'img.youtube.com',
+              port: "",
+              pathname: "/**"
+          },
+          {
+              protocol: "https",
+              hostname: 'img.freepik.com',
+              port: "",
+              pathname: "/**"
+          }
+      ],
+  },
 };
 
 export default nextConfig;
