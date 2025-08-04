@@ -1,0 +1,41 @@
+.about-me-section {
+    background-color: var(--secondary-background);
+    .about-me-wrapper {
+        .about-grid {
+            display: grid;
+            grid-template-columns: .5fr 1fr;
+            gap: 130px;
+            .img-section{
+                background-color: var(--background);
+                aspect-ratio: 1/1;
+                padding: 20px;
+                padding-bottom: 0px;
+                box-sizing: border-box;
+                img{
+                    height: 100%;
+                    width: 100%;
+                    margin-bottom: -10px;
+                }
+            }
+            .description-section{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 10px;
+                h1{
+                    color: #FFF;
+                    font-weight: 600;
+                    font-size: 45px;
+                    font-family: Cormorant Garamond;
+
+                }
+                h3{
+                    font-weight: 600;
+                    font-size: 35px;
+                    font-family: Cormorant Garamond;
+
+                }
+            }
+        }
+    }
+}

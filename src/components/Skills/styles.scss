@@ -1,0 +1,99 @@
+.skills-section {
+    &.extra-bg {
+        background-color: var(--secondary-background);
+    }
+
+    width: 100%;
+
+    .skill-grid {
+        display: grid; 
+        padding-bottom: 60px;
+
+        .cart {
+            background-color: var(--background);
+            padding: 50px;
+            height: 100%;
+
+            .inner-cart {
+                width: max-content;
+                width: 100%;
+
+                .skill-description {
+                    img {
+                        height: 45px;
+                        width: 45px;
+                    }
+
+                    h6 {
+                        font-size: 22px;
+                        font-weight: 500;
+                        color: #FFF;
+                        margin: 20px 0px;
+                    }
+                }
+
+                .skills {
+                    .skills-item {
+                        display: flex;
+                        align-items: start;
+                        gap: 15px;
+
+                        svg {
+                            height: 14px;
+                            width: 14px;
+                            margin-top: 6px;
+                        }
+
+                        p {
+                            font-size: 16px;
+                        }
+                    }
+                }
+
+            }
+        }
+
+    }
+}
+@media only screen and (min-width:200px) and (max-width: 750px) {
+    .skills-section {  
+
+    .skill-grid { 
+
+        .cart {
+            padding: 30px;
+            .inner-cart { 
+
+                .skill-description {
+                    img {
+                        height: 40px;
+                        width: 40px;
+                    }
+
+                    h6 {
+                        font-size: 20px; 
+                        margin: 15px 0px;
+                    }
+                }
+
+                .skills {
+                    .skills-item { 
+                        gap: 12px;
+
+                        svg {
+                            height: 12px;
+                            width: 12px; 
+                        }
+
+                        p {
+                            font-size: 15px;
+                        }
+                    }
+                }
+
+            }
+        }
+
+    }
+}
+}

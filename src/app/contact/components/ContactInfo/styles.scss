@@ -1,0 +1,169 @@
+.contact-into-section {
+    background-color: var(--secondary-background);
+
+    .contact-into-wrapper {
+        .map-section {
+            width: 100%;
+
+            iframe {
+                width: 100%;
+                aspect-ratio: 3/1.5;
+            }
+        }
+
+        .location-section {
+            display: grid;
+            grid-template-columns: 400px auto;
+            gap: 50px;
+
+            .location {
+                margin-top: -300px;
+
+                .location-grid {
+                    width: 100%;
+                    height: 100%;
+
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    background-color: var(--background);
+                    width: 100%;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 50px;
+
+                    .cart {
+                        background-color: var(--secondary-background);
+                        border: 1px solid var(--secondary-background);
+                        padding: 40px;
+                        box-sizing: border-box;
+                        width: 300px;
+                        position: relative;
+
+                        &:hover {
+                            border-color: rgb(255, 255, 255, .1);
+                            background-color: transparent;
+
+                            .copy-btn {
+                                display: flex;
+                            }
+                        }
+
+                        h6 {
+                            color: #FFF;
+                            margin-bottom: 10px;
+                            font-size: 16px;
+                        }
+
+                        .copy-btn {
+                            position: absolute;
+                            right: 5px;
+                            top: 5px;
+                            border: none;
+                            outline: none;
+                            background-color: var(--secondary-background);
+                            height: 20px;
+                            width: 20px;
+                            border-radius: 2px;
+                            cursor: pointer;
+                            align-items: center;
+                            justify-content: center;
+                            display: none;
+
+                            &:hover {
+                                background-color: #333439;
+
+
+                            }
+
+                            &:active {
+                                transform: scale(.9);
+                            }
+
+                            svg {
+                                $size: calc(100% - 5px);
+                                height: $size;
+                                width: $size;
+                                color: #858792;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .message {
+                padding-top: 40px;
+
+                .des {
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width:200px) and (max-width: 1100px) {
+    .contact-into-section {
+
+        .contact-into-wrapper {
+
+            .location-section {
+                grid-template-columns: 320px auto;
+                gap: 40px;
+
+                .location {
+                    margin-top: -200px;
+
+                    .location-grid {
+                        padding: 30px;
+
+                        .cart {
+                            padding: 32px;
+                            width: 100%;
+
+
+                            h6 {
+                                font-size: 14px;
+                            }
+
+                            p {
+                                font-size: 14px;
+                                word-break: break-all;
+                            }
+
+
+                        }
+                    }
+                }
+
+
+            }
+        }
+    }
+}
+
+@media only screen and (min-width:200px) and (max-width: 750px) {
+    .contact-into-section {
+        .contact-into-wrapper {
+            .map-section {
+                width: 100%;
+
+                iframe {
+                    width: 100%;
+                    aspect-ratio: 3/1.5;
+                }
+            }
+
+            .location-section { 
+                display: flex;
+                flex-direction: column-reverse;
+
+                .location {
+                    margin-top: 0px;  
+                }
+
+                 
+            }
+        }
+    }
+}

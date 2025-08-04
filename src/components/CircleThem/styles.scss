@@ -1,0 +1,57 @@
+.circle-them {
+    $size: 450px;
+    $gap: 100px;
+    position: absolute;
+
+    height: $size;
+    width: $size;
+
+    // background-color: yellow;
+    &.half-left-top {
+        top: 0px;
+        left: 0px;
+        transform: translate(-50%, -50%);
+    }
+
+    &.half-left-bottom {
+        top: 0px;
+        left: 0px;
+        transform: translate(-50%, 50%);
+    }
+
+    &.half-right-bottom {
+        bottom: 0px;
+        right: 0px;
+        transform: translate(50%, 50%); 
+
+    }
+
+    .circle-wrapper {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+
+        span {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            height: 100%;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, .1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+
+            &:nth-child(2) {
+                height: calc(100% - $gap * 1);
+                width: calc(100% - $gap * 1);
+            }
+
+            &:nth-child(3) {
+                height: calc(100% - $gap * 2);
+                width: calc(100% - $gap * 2);
+            }
+        }
+
+    }
+}
