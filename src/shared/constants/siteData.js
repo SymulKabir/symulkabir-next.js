@@ -10,6 +10,8 @@ class siteData {
       linkedin: "https://www.linkedin.com/in/symulkabir",
       facebook: "https://facebook.com/SymulKabirPranta",
       github: "https://github.com/SaimonPranta",
+      twitter: "",
+      instagram: "", 
     };
 
     this.links = {
