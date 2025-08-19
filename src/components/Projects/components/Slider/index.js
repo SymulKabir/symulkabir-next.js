@@ -4,39 +4,38 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import 'swiper/css/navigation';
+import "swiper/css/navigation";
 import "./styles.scss";
-import { Pagination, Navigation} from "swiper/modules";
+import { Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
-
+import myImg from "@/assets/images/project images/chatGPT automation chrome extension.png";
 
 export default function App({ projects }) {
   return (
     <>
       <Swiper
         slidesPerView={3}
-        spaceBetween={40} 
+        spaceBetween={40}
         navigation={true}
-        loop={true}   
+        loop={true}
         modules={[Pagination, Navigation]}
         className="project-grid section-my"
         breakpoints={{
           0: {
             slidesPerView: 1,
-            spaceBetween: 20
-
+            spaceBetween: 20,
           },
           600: {
             slidesPerView: 2,
-            spaceBetween: 30
+            spaceBetween: 30,
           },
           750: {
             slidesPerView: 2,
-            spaceBetween: 30
+            spaceBetween: 30,
           },
           1024: {
             slidesPerView: 2,
-            spaceBetween: 30
+            spaceBetween: 30,
           },
           1200: {
             slidesPerView: 3,
@@ -49,10 +48,20 @@ export default function App({ projects }) {
               <div className="project-cart">
                 <div className="img-section">
                   <div className="img-bg">
-                    <Image src={projectInfo.img} height={100} width={100} alt="" />
+                    <Image
+                      src={`/api/assets/images/project images/${projectInfo.img}`}
+                      height={100}
+                      width={100}
+                      alt=""
+                    />
                   </div>
                   <div className="img-container">
-                    <Image src={projectInfo.img}  height={100} width={100} alt="" />
+                    <Image
+                      src={`/api/assets/images/project images/${projectInfo.img}`}
+                      height={100}
+                      width={100}
+                      alt=""
+                    />
                   </div>
                 </div>
                 <div className="des-section">
@@ -75,7 +84,7 @@ export default function App({ projects }) {
                       />
                     </svg>
                     <a href={projectInfo.link} target="__blank">
-                      {projectInfo.link}
+                      {projectInfo.link || "No Link Available"}
                     </a>
                   </div>
                 </div>
