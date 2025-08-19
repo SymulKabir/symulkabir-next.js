@@ -9,6 +9,7 @@ import "./styles.scss";
 import { Pagination, Navigation} from "swiper/modules";
 import Image from "next/image";
 
+
 export default function App({ projects }) {
   return (
     <>

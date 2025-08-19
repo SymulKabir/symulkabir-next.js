@@ -189,26 +189,82 @@ class siteData {
       },
     ];
 
+    // this.projects = [
+    //   {
+    //     img: "https://htmldemo.net/lendex/lendex/assets/images/project/project-slider-img-1.jpg",
+    //     name: "Givest - Non Profit PSD Template",
+    //     link: "https://micple.com",
+    //   },
+    //   {
+    //     img: "https://htmldemo.net/lendex/lendex/assets/images/project/project-slider-img-1.jpg",
+    //     name: "Givest - Non Profit PSD Template",
+    //     link: "https://micple.com",
+    //   },
+    //   {
+    //     img: "https://htmldemo.net/lendex/lendex/assets/images/project/project-slider-img-1.jpg",
+    //     name: "Givest - Non Profit PSD Template",
+    //     link: "https://micple.com",
+    //   },
+    //   {
+    //     img: "https://htmldemo.net/lendex/lendex/assets/images/project/project-slider-img-1.jpg",
+    //     name: "Givest - Non Profit PSD Template",
+    //     link: "https://micple.com",
+    //   },
+    // ];
     this.projects = [
       {
-        img: "https://htmldemo.net/lendex/lendex/assets/images/project/project-slider-img-1.jpg",
-        name: "Givest - Non Profit PSD Template",
-        link: "https://micple.com",
+        name: "Somachar News – SEO-Optimized National Daily Newspaper Platform",
+        description: "<p>Somachar News – Full-Stack SEO-Optimized Newspaper Platform</p><h3><strong>Description:</strong></h3><p>I built and deployed <strong>Somachar News (</strong><a target="_blank" rel="noopener noreferrer nofollow" href="http://somacharnews.com"><strong>somacharnews.com</strong></a><strong>)</strong>, a national daily newspaper platform using <strong>Next.js (frontend)</strong>, <strong>Express.js (backend)</strong>, and <strong>MongoDB (database)</strong>. The project includes:</p><ul><li><p><strong>SEO Optimization</strong> with dynamic meta tags, auto Google indexing notifications, and <strong>nested sitemaps with sitemap index</strong>.</p></li><li><p><strong>Responsive Next.js frontend</strong> for fast rendering and improved search engine visibility.</p></li><li><p><strong>Backend API with Express.js</strong> connected to MongoDB for scalable content management.</p></li><li><p><strong>Deployment on Ubuntu 24.04 server</strong> with <strong>Nginx reverse proxy</strong>, fully configured and optimized by me.</p></li></ul><p>This project highlights my expertise in <strong>full-stack development, SEO-focused design, and Linux server deployment with Nginx</strong>.</p>",
+        link: "https://somacharnews.com",
+        img: "somachar news.png"
+      },
+       {
+        name: "GcomWorlds – Multi-Vendor E-Commerce Platform with Referral System",
+        description: "<p>I developed <strong>GcomWorlds (</strong><a target="_blank" rel="noopener noreferrer nofollow" href="http://gcomworlds.com"><strong>gcomworlds.com</strong></a><strong>)</strong>, a <strong>multi-vendor e-commerce website</strong> where multiple users can create their own online stores, manage products, and sell directly through the platform. The system is built with <strong>React (frontend)</strong>, <strong>Express.js (backend)</strong>, and <strong>MongoDB (database)</strong>, and was fully deployed by me on <strong>cPanel hosting</strong>.</p><p>Key features include:</p><ul><li><p><strong>Multi-Vendor Store Management:</strong> Each vendor gets a panel to manage their store and products.</p></li><li><p><strong>Product Sales &amp; Order Handling:</strong> Seamless product listing and purchase workflow.</p></li><li><p><strong>Referral Bonus System:</strong> Users earn rewards when their referral link leads to a purchase.</p></li><li><p><strong>Scalable Architecture:</strong> Designed for handling multiple vendors and buyers efficiently.</p></li></ul><p>This project highlights my ability to build <strong>large-scale e-commerce systems, vendor management dashboards, and referral-based earning models</strong>.</p>",
+        link: "http://gcomworlds.com",
+        img: "gcom worlds.png"
+      },
+      
+      {
+        name: "Custom Git Server – Self-Hosted Version Control Platform",
+        description: "<p>I designed and deployed a <strong>custom Git server</strong> for my company <strong>Micple</strong>, functioning like GitHub for internal project management. Built and maintained entirely by me on a <strong>Linux Ubuntu server</strong>, the system supports <strong>commit, push, and pull operations</strong>, enabling teams to manage and collaborate on code securely within the organization.</p><p>Key highlights:</p><ul><li><p><strong>Self-hosted Git version control system</strong> for private company projects.</p></li><li><p><strong>Secure SSH-based authentication</strong> for repository access.</p></li><li><p><strong>Fully managed deployment and maintenance</strong> on Ubuntu Linux server.</p></li><li><p>Eliminates dependency on third-party Git hosting services.</p></li></ul><p>This project demonstrates my expertise in <strong>Linux server administration, DevOps, and version control systems</strong>.</p>",
+        link: "",
+        img: "git server.png",
+      }, 
+      { 
+        name: "Micple Mail Server – Custom Email Solution for Micple.com",
+        description: "<p>I built a <strong>custom mail server</strong> for <a target="_blank" rel="noopener noreferrer nofollow" href="http://Micple.com"><strong>Micple.com</strong></a>, enabling the organization to send and receive emails like Gmail but hosted on its own infrastructure. This solution was fully developed, configured, and deployed by me, providing a secure and reliable internal and external communication system.</p><p>Key highlights:</p><ul><li><p><strong>Full-featured mail server</strong> with the ability to send and receive emails.</p></li><li><p><strong>Domain-based email integration</strong> with <strong>@</strong><a target="_blank" rel="noopener noreferrer nofollow" href="http://micple.com"><strong>micple.com</strong></a> accounts.</p></li><li><p><strong>Configured on a Linux server</strong> for secure and scalable performance.</p></li><li><p>Reduces reliance on third-party email providers by maintaining <strong>self-hosted infrastructure</strong>.</p></li></ul><p>This project demonstrates my skills in <strong>server configuration, networking, mail protocols (SMTP, IMAP, POP3), and secure system administration</strong>.</p>",
+        link: "",
+        img: "mail server.png",
+      }, 
+      {
+        name: "Automated Backup System – Shell Script & Node.js",
+        description: "<p>I developed an <strong>automated backup system</strong> using both <strong>Linux shell scripting with rsync</strong> and a <strong>Node.js implementation</strong> for cross-platform use. The system performs hourly backups of required folders while intelligently handling existing and deleted files.</p><p>Key highlights:</p><ul><li><p><strong>Linux Shell Script Version:</strong></p><ul><li><p>Uses <code>rsync</code> with cron jobs to schedule hourly backups.</p></li><li><p>Skips already existing files for efficiency.</p></li><li><p>Deletes files from the destination if they are removed from the source.</p></li></ul></li><li><p><strong>Node.js Version:</strong></p><ul><li><p>Provides the same functionality in a cross-platform environment.</p></li><li><p>Can run on any system that supports Node.js.</p></li><li><p>Offers flexibility for cloud or local backup automation.</p></li></ul></li></ul><p>This project demonstrates my skills in <strong>Linux automation, shell scripting, rsync, cron scheduling, Node.js development, and system reliability engineering</strong>.</p>",
+        link: "",
+        img: "backup system.pnd",
+      }, 
+      {
+        name: "ChatGPT Automation Chrome Extension – Topic-Based Data Collection",
+        description: "<p>I built a <strong>custom Chrome extension</strong> that automates interaction with <strong>ChatGPT</strong> for data collection. The extension takes a predefined list of <strong>questions and topics</strong>, automatically submits them to ChatGPT, retrieves the responses, and saves them to a connected database for structured use.</p><p>Key highlights:</p><ul><li><p><strong>Automated ChatGPT queries</strong> based on topic/question lists.</p></li><li><p><strong>Database integration</strong> to store collected responses for later use.</p></li><li><p><strong>Chrome extension UI</strong> for managing topic collections and automation tasks.</p></li><li><p>Eliminates the need for manual copy-paste, saving time and effort.</p></li></ul><p>This project highlights my expertise in <strong>browser extension development, automation systems, API integration, and database management</strong>.</p>",
+        link: "chatGPT automation chrome extension.png",
+      }, 
+      {
+        name: "NextCoin – Investment & Referral Bonus Platform",
+        description: "<p>I built and deployed <strong>NexttCoin</strong>, an online <strong>investment and earning platform</strong> where users can invest money and receive returns according to the platform’s terms and policies. The system also includes a <strong>referral bonus structure</strong>, allowing users to earn commissions when they invite new members. Developed with <strong>React (frontend)</strong>, <strong>Express.js (backend)</strong>, and <strong>MongoDB (database)</strong>, the platform was fully <strong>hosted on cPanel</strong> by me.</p><p>Key highlights:</p><ul><li><p><strong>Investment Management System</strong> with automated return calculations.</p></li><li><p><strong>Referral Program</strong> with commission-based bonus distribution.</p></li><li><p><strong>Secure user account and transaction handling.</strong></p></li><li><p><strong>End-to-end deployment on cPanel</strong>, managed entirely by me.</p></li></ul><p>This project demonstrates my expertise in <strong>React, Express.js, MongoDB, financial application development, and cPanel deployment</strong>.</p>",
+        link: "http://nexttcoin.com",
+        img: "nexttcoin.png"
       },
       {
-        img: "https://htmldemo.net/lendex/lendex/assets/images/project/project-slider-img-1.jpg",
-        name: "Givest - Non Profit PSD Template",
-        link: "https://micple.com",
+        name: "Dainik Patrapatrika – Scalable Online News Platform",
+        description: "<p>I developed and deployed <strong>Dainik Patrapatrika (</strong><a target="_blank" rel="noopener noreferrer nofollow" href="http://dainikpatrapatrika.com"><strong>dainikpatrapatrika.com</strong></a><strong>)</strong>, a digital newspaper website built with <strong>Next.js (frontend)</strong>, <strong>Express.js (backend)</strong>, and <strong>MongoDB (database)</strong>. The platform is designed for <strong>scalability and SEO performance</strong>, featuring:</p><ul><li><p><strong>SEO-friendly Next.js frontend</strong> with optimized rendering for faster load times.</p></li><li><p><strong>Express.js backend with MongoDB</strong> for efficient news content management.</p></li><li><p><strong>Deployment on Ubuntu 22.04 server</strong> with <strong>Nginx reverse proxy</strong>, configured and managed by me.</p></li><li><p>Structured for <strong>content scalability</strong> with good SEO implementation, though less advanced than my later project <strong>Somachar News</strong>.</p></li></ul><p>This project demonstrates my ability to <strong>design, build, and deploy scalable news platforms with strong SEO and server management skills</strong>.</p>",
+        link: "https://dainikpatrapatrika.com",
+        img: "dainik patrapatrika.png"
       },
       {
-        img: "https://htmldemo.net/lendex/lendex/assets/images/project/project-slider-img-1.jpg",
-        name: "Givest - Non Profit PSD Template",
-        link: "https://micple.com",
-      },
-      {
-        img: "https://htmldemo.net/lendex/lendex/assets/images/project/project-slider-img-1.jpg",
-        name: "Givest - Non Profit PSD Template",
-        link: "https://micple.com",
+        name: "Easy Shop50 (Shopsearn.com) – MLM & Task-Based Earning Platform",
+        description: "<p>I developed and hosted <strong>Easy Shop50 (</strong><a target="_blank" rel="noopener noreferrer nofollow" href="http://shopsearn.com"><strong>shopsearn.com</strong></a><strong>)</strong>, an <strong>MLM-based business and earning platform</strong> that allows users to generate income through referrals and daily tasks. The system is built with <strong>React (frontend)</strong>, <strong>Express.js (backend)</strong>, and <strong>MongoDB Atlas (database)</strong>. Key features include:</p><ul><li><p><strong>Referral System (MLM model):</strong> Users earn commissions when their referred members deposit or perform activities.</p></li><li><p><strong>Daily Task &amp; Reward System:</strong> Users can complete daily tasks to earn rewards and bonuses.</p></li><li><p><strong>Secure Wallet &amp; Earnings Tracking:</strong> Automated calculation and distribution of referral percentages and task earnings.</p></li><li><p><strong>Hosting &amp; Deployment:</strong> Deployed by me on <strong>cPanel</strong> (both frontend and backend) with <strong>MongoDB Atlas</strong> integration.</p></li></ul><p>This project highlights my skills in <strong>React, Express.js, MongoDB Atlas, business logic implementation, and scalable deployment on cPanel hosting</strong>.</p>",
+        link: "https://shopsearn.com",
+        img: "easy shop 50.png"
       },
     ];
 
