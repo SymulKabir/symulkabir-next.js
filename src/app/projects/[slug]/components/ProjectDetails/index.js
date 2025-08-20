@@ -2,7 +2,8 @@ import React from "react";
 import "./styles.scss";
 import SiteData from "@/shared/constants/siteData";
 import Image from "next/image";
-import processDangerouslySetInnerHTML from '@/shared/functions/processDangerouslySetInnerHTML'
+import processDangerouslySetInnerHTML from "@/shared/functions/processDangerouslySetInnerHTML";
+import Link from "next/link";
 
 const Index = ({ classes = "", slug }) => {
   const project = SiteData.findProject(slug);
@@ -12,23 +13,28 @@ const Index = ({ classes = "", slug }) => {
         <div className="image-section">
           <div className="img-wrapper">
             <Image
-            src={`/images/project images/${project.img}`}
-            height={100}
-            width={100}
-            alt=""
-          />
+              src={`/images/project images/${project.img}`}
+              height={100}
+              width={100}
+              alt=""
+            />
           </div>
         </div>
-        <div className="heading-section section-mx">
-          <h1>{project.name}</h1>
+        <div className="heading-section section-mx"> 
+          <div className="section-title">
+            <h2>
+             {project.link && <Link href={project.link} style={{ textTransform: "lowercase" }}>
+                {project.link}
+              </Link> } 
+            </h2>
+            <h3>{project.name}</h3>
+          </div>
         </div>
         <div className="description-section">
           <div
             className="html-view-page"
             dangerouslySetInnerHTML={{
-              __html: processDangerouslySetInnerHTML(
-                project.description
-              ),
+              __html: processDangerouslySetInnerHTML(project.description),
             }}
           />
         </div>

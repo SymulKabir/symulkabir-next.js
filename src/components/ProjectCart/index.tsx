@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.scss";
 import Image from "next/image";
 import Link from "next/link";
-import slugify from "slugify"
+import slugify from "slugify";
 
 interface ProjectInfo {
   img: string;
@@ -15,11 +15,11 @@ interface Props {
 }
 
 const Index: React.FC<Props> = ({ projectInfo }) => {
-const slug = slugify(projectInfo.name, { lower: true })
+  const slug = slugify(projectInfo.name, { lower: true });
 
   return (
-    <Link href={`/projects/${slug}`} className="project-cart">
-      <div className="img-section">
+    <div className="project-cart">
+      <Link href={`/projects/${slug}`} className="img-section">
         {new Array(2).fill("").map((_, index) => {
           return (
             <div className={`img-bg-${index + 1}`} key={index}>
@@ -40,9 +40,11 @@ const slug = slugify(projectInfo.name, { lower: true })
             alt=""
           />
         </div>
-      </div>
+      </Link>
       <div className="des-section">
-        <h2 className="title">{projectInfo.name}</h2>
+        <Link href={`/projects/${slug}`}>
+          <h2 className="title">{projectInfo.name}</h2>
+        </Link>
         <div className="link d-flex">
           <svg
             stroke="currentColor"
@@ -65,7 +67,7 @@ const slug = slugify(projectInfo.name, { lower: true })
           </a>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

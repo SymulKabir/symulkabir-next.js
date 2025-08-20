@@ -8,11 +8,7 @@ const Index = () => {
         <PublicLayout>
             <div className="about-page">
                 <PageTitle pageTitle="Projects" pageRoute="/projects" pageRouteLabel="Projects" />
-                <ProjectsGrid classes="extra-bg"/>
-
-                {/* <Skills classes="extra-bg" />
-                <Experiences />
-                <Contact classes="extra-bg" /> */}
+                <ProjectsGrid classes="extra-bg"/> 
             </div>
         </PublicLayout>
     )

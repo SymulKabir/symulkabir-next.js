@@ -3,10 +3,12 @@ import React from "react";
 import "./styles.scss";
 import MenuIcon from "./components/MenuIcon";
 import CloseIcon from "./components/CloseIcon";
+import ScrollAnimation from "./components/ScrollAnimation";
 
 const Index = () => {
   return (
-    <header className="header ">
+    <header className="header" id="header">
+      <ScrollAnimation />
       <div className="header-wrapper">
         <div className="header-inner-container container">
           <div className="logo-section">
