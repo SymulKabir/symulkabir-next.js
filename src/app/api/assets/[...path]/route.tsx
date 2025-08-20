@@ -4,18 +4,18 @@ import fs from "fs/promises";
 
 export const dynamic = "force-dynamic";
 
-export async function GET(req: NextRequest) {
-  try {
-    const { pathname } = req.nextUrl;
-    const basePath = "/api/assets/"; // your route prefix
-    const relativePath = pathname.replace(basePath, ""); // remove prefix
-    const pathSegments = relativePath.split("/").filter(Boolean);
-
-    const rootPath = path.join(process.cwd(), "src/assets");
-    const fullFilePath = path.join(rootPath, ...pathSegments);
-
+export async function GET(
+  req: NextRequest
+) { 
+  try { 
+    const { pathname } = req.nextUrl;   
+    const rootPath = path.join(process.cwd()); // absolute path to /src/assets
+    const filePath = decodeURIComponent(pathname).replace("/api", "/src") 
+    const fullFilePath = path.join(rootPath, filePath);  
+ 
+    // Check if file exists
     try {
-      await fs.access(fullFilePath);
+      await fs.access(fullFilePath); // throws if file doesn't exist
     } catch {
       return NextResponse.json(
         { message: "File not found", success: false },
@@ -23,33 +23,24 @@ export async function GET(req: NextRequest) {
       );
     }
 
+    // Read file content
     const fileBuffer = await fs.readFile(fullFilePath);
 
+    // Determine MIME type based on extension
     const ext = path.extname(fullFilePath).toLowerCase();
     let contentType = "application/octet-stream";
-
-    switch (ext) {
-      case ".png":
-        contentType = "image/png";
-        break;
-      case ".jpg":
-      case ".jpeg":
-        contentType = "image/jpeg";
-        break;
-      case ".gif":
-        contentType = "image/gif";
-        break;
-      case ".svg":
-        contentType = "image/svg+xml";
-        break;
-    }
+    if (ext === ".png") contentType = "image/png";
+    else if (ext === ".jpg" || ext === ".jpeg") contentType = "image/jpeg";
+    else if (ext === ".gif") contentType = "image/gif";
+    else if (ext === ".svg") contentType = "image/svg+xml";
 
     return new NextResponse(fileBuffer, {
       status: 200,
       headers: { "Content-Type": contentType },
     });
   } catch (error: unknown) {
-    const errorMessage = error instanceof Error ? error.message : "Unknown error";
+    let errorMessage = "Unknown error";
+    if (error instanceof Error) errorMessage = error.message;
 
     return NextResponse.json(
       { message: "Failed to serve file", success: false, error: errorMessage },
