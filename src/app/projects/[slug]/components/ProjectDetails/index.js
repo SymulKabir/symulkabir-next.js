@@ -12,7 +12,7 @@ const Index = ({ classes = "", slug }) => {
         <div className="image-section">
           <div className="img-wrapper">
             <Image
-            src={`/api/assets/images/project images/${project.img}`}
+            src={`/images/project images/${project.img}`}
             height={100}
             width={100}
             alt=""

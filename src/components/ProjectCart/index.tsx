@@ -24,7 +24,7 @@ const slug = slugify(projectInfo.name, { lower: true })
           return (
             <div className={`img-bg-${index + 1}`} key={index}>
               <Image
-                src={`/api/assets/images/project images/${projectInfo.img}`}
+                src={`/images/project images/${projectInfo.img}`}
                 height={100}
                 width={100}
                 alt=""
@@ -34,7 +34,7 @@ const slug = slugify(projectInfo.name, { lower: true })
         })}
         <div className="img-container">
           <Image
-            src={`/api/assets/images/project images/${projectInfo.img}`}
+            src={`/images/project images/${projectInfo.img}`}
             height={100}
             width={100}
             alt=""
