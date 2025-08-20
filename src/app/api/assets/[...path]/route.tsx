@@ -4,21 +4,19 @@ import fs from "fs/promises";
 
 export const dynamic = "force-dynamic";
 
-export async function GET(
-  req: NextRequest
-) { 
-  try { 
-    const { pathname } = req.nextUrl;   
+export async function GET(req: NextRequest) {
+  try {
+    const { pathname } = req.nextUrl;
     const rootPath = path.join(process.cwd()); // absolute path to /src/assets
-    const filePath = decodeURIComponent(pathname).replace("/api", "/src") 
-    const fullFilePath = path.join(rootPath, filePath);  
- 
+    const filePath = decodeURIComponent(pathname).replace("/api", "/src");
+    const fullFilePath = path.join(rootPath, filePath);
+
     // Check if file exists
     try {
       await fs.access(fullFilePath); // throws if file doesn't exist
     } catch {
       return NextResponse.json(
-        { message: "File not found", success: false },
+        { message: "File not found", fullFilePath, success: false },
         { status: 404 }
       );
     }
