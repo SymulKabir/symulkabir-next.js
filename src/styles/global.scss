@@ -1,103 +1,129 @@
 $section-gap: 40px;
 
 .container {
-    width: calc(100% - 60px);
-    max-width: 1200px;
-    display: block;
-    margin: 0px auto;
+  width: calc(100% - 60px);
+  max-width: 1200px;
+  display: block;
+  margin: 0px auto;
 }
 
 .section-title {
-    &.center {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+  &.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h2 {
+    position: relative;
+    padding-left: 20px;
+    // color: #858792;
+    color: var(--secondary-foreground);
+    text-transform: uppercase;
+
+    font-size: 18px;
+    font-weight: 500;
+
+    &::before {
+      position: absolute;
+      content: "||";
+      color: inherit;
+      left: 0px;
+      top: 0px;
+      height: 100px;
+      width: max-content;
     }
+  }
 
-    h2 {
-        position: relative;
-        padding-left: 20px;
-        // color: #858792;
-        color: var(--secondary-foreground);
-        text-transform: uppercase;
-
-        font-size: 18px;
-        font-weight: 500;
-
-        &::before {
-            position: absolute;
-            content: "||";
-            color: inherit;
-            left: 0px;
-            top: 0px;
-            height: 100px;
-            width: max-content;
-        }
-    }
-
-    h3 {
-        font-size: 40px;
-        color: #FFF;
-        font-weight: 700;
-        font-family: "Cormorant Garamond", serif;
-
-    }
+  h3 {
+    font-size: 40px;
+    color: #fff;
+    font-weight: 700;
+    font-family: "Cormorant Garamond", serif;
+  }
 }
 
 .d-flex {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .section-mx {
-    margin: $section-gap 0px;
+  margin: $section-gap 0px;
 }
 
 .section-my {
-    margin-top: $section-gap;
+  margin-top: $section-gap;
 }
 
 .section-mb {
-    margin-bottom: $section-gap;
-
+  margin-bottom: $section-gap;
 }
 
 .section-px {
-    padding: $section-gap 0px;
+  padding: $section-gap 0px;
 }
 
 .section-py {
-    padding-top: $section-gap;
+  padding-top: $section-gap;
 }
 
 .section-pb {
-    padding-bottom: $section-gap;
-
+  padding-bottom: $section-gap;
 }
 
-@media only screen and (min-width:200px) and (max-width: 1000px) {
-    .section-title { 
+.html-view-page {
+  $color: #c4c5ce; 
+  color:  $color;
+  & > p {
+    margin-bottom: 20px;
+  }
 
-        h2 { 
+  p {
+    line-height: 25px;
+  }
 
-            font-size: 17px;  
-        }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 
-        h3 {
-            font-size: 35px;
-        }
+  span,
+  strong {
+    color: inherit;
+  }
+
+  ul,
+  ol {
+    margin: 0px 0px 20px 30px;
+
+    li {
+      &::marker {
+        color: $color;
+      }
     }
+  }
 }
-@media only screen and (min-width:200px) and (max-width: 750px) {
-    .section-title { 
 
-        h2 { 
-
-            font-size: 16px;  
-        }
-
-        h3 {
-            font-size: 30px;
-        }
+@media only screen and (min-width: 200px) and (max-width: 1000px) {
+  .section-title {
+    h2 {
+      font-size: 17px;
     }
+
+    h3 {
+      font-size: 35px;
+    }
+  }
+}
+@media only screen and (min-width: 200px) and (max-width: 750px) {
+  .section-title {
+    h2 {
+      font-size: 16px;
+    }
+
+    h3 {
+      font-size: 30px;
+    }
+  }
 }

@@ -1,3 +1,5 @@
+import slugify from "slugify";
+
 class siteData {
   constructor() {
     this.domain = "https://symulkabir.vercel.app";
@@ -189,28 +191,6 @@ class siteData {
       },
     ];
 
-    // this.projects = [
-    //   {
-    //     img: "https://htmldemo.net/lendex/lendex/assets/images/project/project-slider-img-1.jpg",
-    //     name: "Givest - Non Profit PSD Template",
-    //     link: "https://micple.com",
-    //   },
-    //   {
-    //     img: "https://htmldemo.net/lendex/lendex/assets/images/project/project-slider-img-1.jpg",
-    //     name: "Givest - Non Profit PSD Template",
-    //     link: "https://micple.com",
-    //   },
-    //   {
-    //     img: "https://htmldemo.net/lendex/lendex/assets/images/project/project-slider-img-1.jpg",
-    //     name: "Givest - Non Profit PSD Template",
-    //     link: "https://micple.com",
-    //   },
-    //   {
-    //     img: "https://htmldemo.net/lendex/lendex/assets/images/project/project-slider-img-1.jpg",
-    //     name: "Givest - Non Profit PSD Template",
-    //     link: "https://micple.com",
-    //   },
-    // ];
     this.projects = [
       {
         name: "Somachar News – SEO-Optimized National Daily Newspaper Platform",
@@ -343,6 +323,14 @@ class siteData {
     this.referenceWebsiteLink =
       "https://preview.themeforest.net/item/lendex-personal-portfolio-bootstrap-5-template/full_screen_preview/31542002?_ga=2.129973452.1570094698.1737996810-1187294755.1736097818&_gac=1.125403896.1737996828.CjwKCAiA-ty8BhA_EiwAkyoa33-dlhunfNpuxFPm9qieZox0NJ90lpo9Qm0_-E7EppCrt5Vx1g3WGBoCEnwQAvD_BwE&fbclid=IwY2xjawMRqyRleHRuA2FlbQIxMABicmlkETEwRk5oNGRPM2Q4S29tY2ZLAR54nlkDjQl91rt1rlVecF3UtRNszdaF-0AfotA_nmpzDl8HBlcHj72MS0IFQw_aem_lW-IjVdYx51zouh4u_rUHQ";
   }
+
+  findProject = (projectName = "") => {
+    const project = this.projects?.find((project) => {
+      const slug = slugify(project.name, { lower: true });
+      return slug === projectName;
+    });
+    return project || { message: "Project not found" };
+  };
 }
 
 const SiteData = new siteData();

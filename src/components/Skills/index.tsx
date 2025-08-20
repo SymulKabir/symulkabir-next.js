@@ -14,7 +14,6 @@ const Index = ({classes = ""}) => {
                     <h3>Skills I Bring to the Table.</h3>
                 </div>
                 <Slider skills={siteData?.skills}  />
-                
             </div>
         </section>
     )

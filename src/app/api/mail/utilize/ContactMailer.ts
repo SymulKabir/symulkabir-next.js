@@ -47,8 +47,6 @@ const handleMailSent = async (userInfo: UserInfo): Promise<nodemailer.SentMessag
   };
 
   try {
-    console.log("Sending email from:", process.env.NODEMAILER_EMAIL);
-
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -58,7 +56,6 @@ const handleMailSent = async (userInfo: UserInfo): Promise<nodemailer.SentMessag
     });
 
     const result = await transporter.sendMail(mailOptions);
-    console.log("Email sent successfully:", result.messageId);
     return result;
   } catch (error: unknown) {
     console.error("Error sending email:", error);

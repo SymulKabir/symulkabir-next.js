@@ -38,6 +38,11 @@ const Index = () => {
                     Service
                   </Link>
                 </li>
+                <li>
+                  <Link href="/projects" title="Explore our services">
+                    Projects
+                  </Link>
+                </li>
                 {/* <li >
                             <Link href="/blog" title="Read our latest blog posts">Blog</Link>
                         </li> */}
