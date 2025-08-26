@@ -293,6 +293,15 @@ class siteData {
 
     this.educations = [
       {
+        title: "Postgraduate Diploma in Information Technology (PGDIT)",
+        subTitle: "University of Dhaka",
+        des: "Currently enrolled in the Postgraduate Diploma in Information Technology (PGDIT) program at Dhaka University. Building expertise in software engineering, databases, networking, and advanced IT systems.",
+        period: {
+          from: "2025",
+          to: "Present",
+        },
+      },
+      {
         title: "Bachelor of Business Administration (BBA)",
         subTitle: "Nizampur Government College",
         des: "Pursuing a Bachelor's degree in Business Administration with a focus on Management. Developed strong understanding of business principles, organizational operations, and strategic planning.",

@@ -20,13 +20,18 @@ const Index = ({ classes = "", slug }) => {
             />
           </div>
         </div>
-        <div className="heading-section section-mx"> 
+        <div className="heading-section section-mx">
           <div className="section-title">
-            <h2>
-             {project.link && <Link href={project.link} style={{ textTransform: "lowercase" }}>
-                {project.link}
-              </Link> } 
-            </h2>
+            {project.link && (
+              <h2>
+                <Link
+                  href={project.link}
+                  style={{ textTransform: "lowercase" }}
+                >
+                  {project.link}
+                </Link>
+              </h2>
+            )}
             <h3>{project.name}</h3>
           </div>
         </div>

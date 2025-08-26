@@ -116,18 +116,17 @@
             border-radius: 50%;
             transform: translateY(-50%);
             border: 1px solid rgba(255, 255, 255, 0.25);
-
             &::before {
               position: absolute;
               content: "";
-              left: 0px;
+              left: -1px;
               top: 0px;
               background-color: var(--background);
               height: 100%;
               width: 50%;
               z-index: 2;
+              // display: none;
             }
-
             &::after {
               $social-after-size: calc($social-size - 60px);
               position: absolute;
@@ -242,7 +241,6 @@
 
         .image-section {
           $img-size: 500px;
-
           .img-container {
             height: $img-size;
 
@@ -285,17 +283,17 @@
               position: absolute;
               height: $social-size;
               width: $social-size;
-              right: 140px;
+              right: 50%;
               top: 50%;
               z-index: -1;
               border-radius: 50%;
-              transform: translateY(-50%);
+              transform: translateY(-50%) translateX(50%);
               border: 1px solid rgba(255, 255, 255, 0.25);
 
               &::before {
                 position: absolute;
                 content: "";
-                left: 0px;
+                left: -1px;
                 top: 0px;
                 background-color: var(--background);
                 height: 100%;

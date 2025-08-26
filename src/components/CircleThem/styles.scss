@@ -2,11 +2,9 @@
     $size: 450px;
     $gap: 100px;
     position: absolute;
-
     height: $size;
     width: $size;
-
-    // background-color: yellow;
+    z-index: -1;
     &.half-left-top {
         top: 0px;
         left: 0px;
@@ -22,7 +20,7 @@
     &.half-right-bottom {
         bottom: 0px;
         right: 0px;
-        transform: translate(50%, 50%); 
+        transform: translate(50%, 50%);
 
     }
 
@@ -53,5 +51,14 @@
             }
         }
 
+    }
+}
+
+
+@media only screen and (min-width: 200px) and (max-width: 800px) {
+    .circle-them {
+        $size: 350px;
+        height: $size;
+        width: $size;
     }
 }
