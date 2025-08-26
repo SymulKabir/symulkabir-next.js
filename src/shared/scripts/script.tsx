@@ -10,9 +10,7 @@ export default function NavHighlighter() {
     const headerNav = document?.getElementById("header-nav");
     if (!headerNav) return;
 
-
     const aElements = headerNav?.querySelectorAll<HTMLAnchorElement>("a");
-
     
     aElements?.forEach((element) => {
       const href = element?.getAttribute("href");
