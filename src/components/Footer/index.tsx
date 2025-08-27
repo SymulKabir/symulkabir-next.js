@@ -69,7 +69,7 @@ const Index = () => {
                         </svg>
 
                     </Link>
-                    <Link href={SiteData?.socialLinks?.instagram || SiteData.domain} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <Link href={SiteData?.socialLinks?.github || SiteData.domain} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                         <svg
                             stroke="currentColor"
                             fill="currentColor"

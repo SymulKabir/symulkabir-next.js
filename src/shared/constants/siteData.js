@@ -11,7 +11,7 @@ class siteData {
     this.socialLinks = {
       linkedin: "https://www.linkedin.com/in/symulkabir",
       facebook: "https://facebook.com/SymulKabirPranta",
-      github: "https://github.com/SaimonPranta",
+      github: "https://github.com/SymulKabir",
       twitter: "",
       instagram: "",
     };
