@@ -18,7 +18,7 @@ class siteData {
 
     this.links = {
       github: this.socialLinks.github,
-      cv: "https://drive.google.com/file/d/1CZpAcOEbFDsxf_1X_VEdKAlg6gTo59Qr/view?usp=sharing",
+      cv: "https://drive.google.com/file/d/1-l1om-BPWHI4T7YMHgIXi4zq-tAkRty5/view?usp=sharing",
     };
 
     this.contacts = {
