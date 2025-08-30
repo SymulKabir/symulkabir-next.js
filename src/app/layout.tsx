@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     "Explore the portfolio of Symul Kabir, a passionate Full-Stack Developer and DevOps engineer specializing in modern web technologies, scalable backend systems, and efficient CI/CD pipelines.",
   openGraph: {
     images: [{
-      url: "/images/website-preview.png",
+      url: "/images/website-preview.jpeg",
       alt: "Symul Kabir's Portfolio Preview",
       type: "image/png",
       width: 1260,

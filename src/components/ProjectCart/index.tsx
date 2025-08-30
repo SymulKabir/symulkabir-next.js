@@ -5,7 +5,7 @@ import Link from "next/link";
 import slugify from "slugify";
 
 interface ProjectInfo {
-  img: string;
+  thumbnails: string;
   name: string;
   link?: string;
 }
@@ -24,7 +24,7 @@ const Index: React.FC<Props> = ({ projectInfo }) => {
           return (
             <div className={`img-bg-${index + 1}`} key={index}>
               <Image
-                src={`/images/project images/${projectInfo.img}`}
+                src={`/images/project images/thumbnails/${projectInfo.thumbnails}`}
                 height={100}
                 width={100}
                 alt=""
@@ -34,7 +34,7 @@ const Index: React.FC<Props> = ({ projectInfo }) => {
         })}
         <div className="img-container">
           <Image
-            src={`/images/project images/${projectInfo.img}`}
+            src={`/images/project images/thumbnails/${projectInfo.thumbnails}`}
             height={100}
             width={100}
             alt=""
