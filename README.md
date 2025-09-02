@@ -29,8 +29,7 @@ To run this project locally, follow these steps:
 #### 1. Clone the repository:
 
 ```bash
-git clone https://github.com/symulkabir/symulkabir-next.js.git
-cd symulkabir-next.js
+git clone git@github.com:SymulKabir/symulkabir-next.js.git
 ```
 
 #### 2. Install dependencies:
