@@ -16,7 +16,7 @@ pipeline {
 
         stage('Build & Deploy') {
             steps {
-                sshagent(['remote-server-ssh']) {
+                sshagent(['micple-server']) {
                     sh '''
                         ssh -o StrictHostKeyChecking=no root@micple.com " 
                         cd /var/www/myapp || mkdir /var/www/myapp
