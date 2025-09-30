@@ -4,6 +4,11 @@ pipeline {
     triggers {
         pollSCM('H/2 * * * *')
     }
+
+    environment {
+        GITHUB_TOKEN = credentials('github-access-token') // Jenkins secret
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -16,22 +21,23 @@ pipeline {
         stage('Build & Deploy') {
             steps {
                 sshagent(['micple-server']) {
-                    sh '''
-                        ssh -o StrictHostKeyChecking=no root@micple.com " 
-                        cd /var/www/myapp || mkdir /var/www/myapp
-                        cd /var/www/myapp 
-                        if [ -d ".git" ]; then
+                    sh """
+                    ssh -o StrictHostKeyChecking=no root@micple.com '
+                        mkdir -p /var/www/myapp
+                        cd /var/www/myapp
+                        if [ -d .git ]; then
                             git pull
                         else
-                            git clone git@github.com:SymulKabir/symulkabir-next.js.git .
+                            git clone https://$GITHUB_TOKEN@github.com/SymulKabir/symulkabir-next.js.git .
                         fi
+                        export PATH=\$PATH:/usr/local/bin
                         npm install
                         npm run build
                         pm2 delete myApp || true
-                        pm2 start "npm start" --name "myApp
+                        pm2 start npm -- start --name myApp
                         pm2 save
-                        "
-                    '''
+                    '
+                    """
                 }
             }
         }
