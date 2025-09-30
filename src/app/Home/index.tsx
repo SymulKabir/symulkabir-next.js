@@ -22,7 +22,6 @@ const Index = () => {
         <Projects classes="extra-bg" />
         <Testimonial/>
         <Contact classes="extra-bg" />
-       
       </div>
     </PublicLayout>
   );
