@@ -24,7 +24,7 @@ pipeline {
                         mkdir -p /var/www/myapp
                         cd /var/www/myapp
                         if [ -d .git ]; then
-                            git pull
+                            git pull origin master
                         else
                             git clone https://github.com/SymulKabir/symulkabir-next.js.git .
                         fi
