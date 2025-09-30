@@ -14,31 +14,28 @@ pipeline {
             }
         }
 
-        stage('Build & Deploy') {
-            steps {
-                sshagent(['micple-server']) {
-                    sh """
-                    ssh -o StrictHostKeyChecking=no root@micple.com '
-                        mkdir -p /var/www/myapp
-                        cd /var/www/myapp
-                        if [ -d .git ]; then
-                            git pull origin master
-                        else
-                            git clone https://github.com/SymulKabir/symulkabir-next.js.git /var/www/myapp
-                        fi
+    stage('Build & Deploy') {
+        steps {
+            sshagent(['micple-server']) {
+                sh """
+                ssh -o StrictHostKeyChecking=no root@micple.com '
+                    mkdir -p /var/www/myapp
+                    cd /var/www/myapp
+                    if [ -d .git ]; then
+                        git pull origin master
+                    else
+                        git clone https://github.com/SymulKabir/symulkabir-next.js.git /var/www/myapp
+                    fi
 
-                        export NVM_DIR="/root/.nvm"
-                        [ -s "\\\$NVM_DIR/nvm.sh" ] && . "\\\$NVM_DIR/nvm.sh"
-                        export PATH="\\\$NVM_DIR/versions/node/v14.21.3/bin:\\\$PATH"
-
-                        npm install
-                        npm run build
-                        pm2 delete "myapp" || true
-                        pm2 start "npm start" --name "myapp"
-                    '
-                    """
-                }
+                    /root/.nvm/versions/node/v14.21.3/bin/npm install
+                    /root/.nvm/versions/node/v14.21.3/bin/npm run build
+                    /root/.nvm/versions/node/v14.21.3/bin/pm2 delete "myapp" || true
+                    /root/.nvm/versions/node/v14.21.3/bin/pm2 start "npm start" --name "myapp"
+                '
+                """
             }
         }
+    }
+
     }
 }
