@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     triggers {
-        pollSCM('H/2 * * * *') // poll every 2 minutes
+        pollSCM('H/2 * * * *')
     }
 
     stages {
@@ -14,22 +14,22 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Build & Deploy') {
             steps {
-                echo 'Building...'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                echo 'Running tests...'
-            }
-        }
-
-
-        stage('Deploy') {
-            steps {
-                echo 'Deploying application...'
+                sshagent(['remote-server-ssh']) {
+                    sh '''
+                        ssh -o StrictHostKeyChecking=no root@micple.com " 
+                        cd /var/www/myapp || mkdir /var/www/myapp
+                        cd /var/www/myapp
+                        git clone -b master https://github.com/SymulKabir/symulkabir-next.js.git . || git pull
+                        npm install
+                        npm run build
+                        pm2 delete myApp || true
+                        pm2 start "npm start" --name "myApp
+                        pm2 save
+                        "
+                    '''
+                }
             }
         }
     }
