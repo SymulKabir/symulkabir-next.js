@@ -28,8 +28,8 @@ pipeline {
                         fi
 
                         export NVM_DIR="/root/.nvm"
-                        [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-                        export PATH=$NVM_DIR/versions/node/v14.21.3/bin:$PATH
+                        [ -s "\\$NVM_DIR/nvm.sh" ] && . "\\$NVM_DIR/nvm.sh"
+                        export PATH="\\$NVM_DIR/versions/node/v14.21.3/bin:\\$PATH"
 
                         npm install
                         npm run build
