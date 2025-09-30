@@ -26,7 +26,7 @@ pipeline {
                         if [ -d .git ]; then
                             git pull origin master
                         else
-                            git clone https://github.com/SymulKabir/symulkabir-next.js.git .
+                            git clone https://github.com/SymulKabir/symulkabir-next.js.git /var/www/myapp
                         fi
                       
                     '
