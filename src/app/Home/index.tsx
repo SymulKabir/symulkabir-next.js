@@ -7,11 +7,7 @@ import Skills from '@/components/Skills'
 import Experiences from '@/components/Experiences'
 import Projects from '@/components/Projects'
 import Testimonial from '@/components/Testimonial'
-import Contact from '@/components/Contact'
-
-
-
-
+import Contact from '@/components/Contact' 
 const Index = () => {
   return (
     <PublicLayout>
