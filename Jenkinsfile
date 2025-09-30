@@ -5,8 +5,6 @@ pipeline {
         pollSCM('H/2 * * * *')
     }
 
-    
-
     stages {
         stage('Checkout') {
             steps {
@@ -28,12 +26,15 @@ pipeline {
                         else
                             git clone https://github.com/SymulKabir/symulkabir-next.js.git /var/www/myapp
                         fi
-                        
-                        /root/.nvm/versions/node/v14.21.3/bin/npm install
-                        /root/.nvm/versions/node/v14.21.3/bin/npm run build
-                        /root/.nvm/versions/node/v14.21.3/bin/pm2 delete "myapp" || true
-                        /root/.nvm/versions/node/v14.21.3/bin/pm2 start "npm start" --name "myapp"
-                      
+
+                        export NVM_DIR="/root/.nvm"
+                        [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+                        export PATH=$NVM_DIR/versions/node/v14.21.3/bin:$PATH
+
+                        npm install
+                        npm run build
+                        pm2 delete "myapp" || true
+                        pm2 start "npm start" --name "myapp"
                     '
                     """
                 }
