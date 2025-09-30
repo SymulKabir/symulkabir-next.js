@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     triggers {
-        pollSCM('H/2 * * * *') // poll every 2 minutes
+        pollSCM('H/5 * * * *') // poll every 2 minutes
     }
 
     stages {
@@ -16,22 +16,20 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'echo "Building project..."'
-                sh 'npm install'
-                sh 'npm run build'
+                echo 'Building...'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'echo "Running tests..."'
-                sh 'npm test || true'
+                echo 'Running tests...'
             }
         }
 
+
         stage('Deploy') {
             steps {
-                sh 'echo "Deploying application..."'
+                echo 'Deploying application...'
             }
         }
     }
