@@ -19,8 +19,7 @@ pipeline {
                     sh '''
                         ssh -o StrictHostKeyChecking=no root@micple.com " 
                         cd /var/www/myapp || mkdir /var/www/myapp
-                        cd /var/www/myapp
-                         || git pull
+                        cd /var/www/myapp 
                         if [ -d ".git" ]; then
                             git pull
                         else
