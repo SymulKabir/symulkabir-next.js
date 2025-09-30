@@ -28,14 +28,15 @@ pipeline {
                         if [ -d .git ]; then
                             git pull
                         else
-                            git clone https://$GITHUB_TOKEN@github.com/SymulKabir/symulkabir-next.js.git .
+                            git clone https://github.com/SymulKabir/symulkabir-next.js.git .
+                            // git clone https://$GITHUB_TOKEN@github.com/SymulKabir/symulkabir-next.js.git .
                         fi
-                        export PATH=\$PATH:/usr/local/bin
-                        npm install
-                        npm run build
-                        pm2 delete myApp || true
-                        pm2 start npm -- start --name myApp
-                        pm2 save
+                        // export PATH=\$PATH:/usr/local/bin
+                        // npm install
+                        // npm run build
+                        // pm2 delete myApp || true
+                        // pm2 start npm -- start --name myApp
+                        // pm2 save
                     '
                     """
                 }
