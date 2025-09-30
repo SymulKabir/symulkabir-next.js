@@ -28,6 +28,7 @@ pipeline {
                         else
                             git clone https://github.com/SymulKabir/symulkabir-next.js.git /var/www/myapp
                         fi
+                        
                         /root/.nvm/versions/node/v14.21.3/bin/npm install
                         /root/.nvm/versions/node/v14.21.3/bin/npm run build
                         /root/.nvm/versions/node/v14.21.3/bin/pm2 delete "myapp" || true
