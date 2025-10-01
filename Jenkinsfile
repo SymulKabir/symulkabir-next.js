@@ -5,9 +5,16 @@ pipeline {
         timestamps()
         disableConcurrentBuilds()
     }
-    
+
     triggers {
         pollSCM('H/2 * * * *')
+    }
+    
+    environment {
+        APP_NAME = "myapp"
+        DOCKER_IMAGE = "myapp:latest"
+        REMOTE_HOST = "root@micple.com"
+        DEPLOY_DIR = "/var/www/myapp"
     }
 
     stages {
