@@ -26,11 +26,11 @@ pipeline {
                     else
                         git clone https://github.com/SymulKabir/symulkabir-next.js.git /var/www/myapp
                     fi
-
-                    /root/.nvm/versions/node/v14.21.3/bin/npm install
-                    /root/.nvm/versions/node/v14.21.3/bin/npm run build
-                    /root/.nvm/versions/node/v14.21.3/bin/pm2 delete "myapp" || true
-                    /root/.nvm/versions/node/v14.21.3/bin/pm2 start "npm start" --name "myapp"
+                    docker build -t myapp ./
+                    docker stop myapp || true
+                    docker rm myapp || true
+                    docker run -d -p 3000:3000 --name myapp myapp
+                    
                 '
                 """
             }
