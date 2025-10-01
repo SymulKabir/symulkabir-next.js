@@ -9,7 +9,7 @@ pipeline {
     triggers {
         pollSCM('H/2 * * * *')
     }
-    
+
     environment {
         APP_NAME = "myapp"
         DOCKER_IMAGE = "myapp:latest"
@@ -26,7 +26,11 @@ pipeline {
             }
         }
 
-
+        stage('Install Dependencies') {
+                    steps {
+                        sh 'npm ci'
+                    }
+                }
     stage('Build & Deploy') {
         steps {
             sshagent(['micple-server']) {
