@@ -14,6 +14,7 @@ RUN npm install --frozen-lockfile
 COPY . .
 
 # Build Next.js app
+RUN apk add --no-cache curl bash
 RUN npm run build
 
 # Production stage
