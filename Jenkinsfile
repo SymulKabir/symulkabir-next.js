@@ -6,12 +6,8 @@ pipeline {
         disableConcurrentBuilds()
     }
 
-    wrappers {
-        ansiColor('xterm')
-    }
-
     triggers {
-        pollSCM('H/2 * * * *') // Poll every 2 minutes
+        pollSCM('H/2 * * * *')
     }
 
     environment {
@@ -32,7 +28,7 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'npm ci'  // industry best practice (clean install)
+                sh 'npm ci'
             }
         }
 
@@ -44,8 +40,7 @@ pipeline {
 
         stage('Lint & Test') {
             steps {
-                sh 'npm run lint || true'   // run lint, don't fail pipeline if warnings
-                // If you add tests in future: sh 'npm test'
+                sh 'npm run lint || true'
             }
         }
 
@@ -65,7 +60,7 @@ pipeline {
                     ssh -o StrictHostKeyChecking=no $REMOTE_HOST '
                         mkdir -p $DEPLOY_DIR
                     '
-                    scp -o StrictHostKeyChecking=no docker-compose.yml $REMOTE_HOST:$DEPLOY_DIR/
+                    scp -o StrictHostKeyChecking=no docker-compose.yml $REMOTE_HOST:$DEPLOY_DIR/ || true
                     ssh -o StrictHostKeyChecking=no $REMOTE_HOST "
                         cd $DEPLOY_DIR
                         docker stop $APP_NAME || true
