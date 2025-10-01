@@ -14,6 +14,7 @@ pipeline {
             }
         }
 
+
     stage('Build & Deploy') {
         steps {
             sshagent(['micple-server']) {
