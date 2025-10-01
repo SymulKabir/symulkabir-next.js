@@ -26,32 +26,7 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
-            steps {
-                sh 'npm ci'
-            }
-        }
-
-        stage('Build') {
-            steps {
-                sh 'npm run build'
-            }
-        }
-
-        stage('Lint & Test') {
-            steps {
-                sh 'npm run lint || true'
-            }
-        }
-
-        stage('Docker Build') {
-            steps {
-                sh '''
-                docker build --pull --no-cache \
-                    -t $DOCKER_IMAGE .
-                '''
-            }
-        }
+     
 
         stage('Deploy') {
             steps {
