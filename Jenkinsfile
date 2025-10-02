@@ -43,8 +43,7 @@ pipeline {
                         else
                             git clone https://github.com/SymulKabir/symulkabir-next.js.git /var/www/myapp
                         fi
-                        export PATH="/root/.nvm/versions/node/v14.21.3/bin:$PATH"
-                        npm install
+                        /bin/symul_portfolio
                         
                     '
                     """
