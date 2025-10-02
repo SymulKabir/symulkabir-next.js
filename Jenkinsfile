@@ -38,8 +38,19 @@ pipeline {
                             git pull origin master
                         else
                             git clone https://github.com/SymulKabir/symulkabir-next.js.git /var/www/myapp
-                        fi
-                        /bin/symul_portfolio
+                        fi 
+
+                        WORKDIR="/var/www/myapp"
+
+
+                        cd "$WORKDIR"
+
+                        export PATH="/root/.nvm/versions/node/v14.21.3/bin:$PATH"
+                        npm install
+                        npm run build
+                        npm start
+                                            
+                        pm2 start "npm start" --name myapp
                         
                     '
                     """
