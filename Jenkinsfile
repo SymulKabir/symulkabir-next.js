@@ -26,11 +26,7 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
-            steps {
-                    sh 'npm ci'
-                }
-        }
+         
         stage('Build & Deploy') {
             steps {
                 sshagent(['micple-server']) {
