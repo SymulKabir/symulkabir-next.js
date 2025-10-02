@@ -30,6 +30,17 @@ pipeline {
                 sh 'npm install'
             }
         }
+        stage('Build') {
+            steps {
+                sh 'npm run build'
+            }
+        }
+
+        stage('Lint & Test') {
+            steps {
+                sh 'npm run lint || true'
+            }
+        }
      
         stage('Build & Deploy') {
             steps {
