@@ -45,7 +45,6 @@ pipeline {
                         export PATH="/root/.nvm/versions/node/v14.21.3/bin:$PATH"
                         npm install
                         npm run build
-                        npm start
                     '
                     '''
                 }
