@@ -26,11 +26,10 @@ pipeline {
             }
         }
 
-         
         stage('Build & Deploy') {
             steps {
                 sshagent(['micple-server']) {
-                    sh """
+                    sh '''
                     ssh -o StrictHostKeyChecking=no root@micple.com '
                         mkdir -p /var/www/myapp
                         cd /var/www/myapp
@@ -38,24 +37,19 @@ pipeline {
                             git pull origin master
                         else
                             git clone https://github.com/SymulKabir/symulkabir-next.js.git /var/www/myapp
-                        fi 
+                        fi
 
                         WORKDIR="/var/www/myapp"
-
-
                         cd "$WORKDIR"
 
                         export PATH="/root/.nvm/versions/node/v14.21.3/bin:$PATH"
                         npm install
                         npm run build
                         npm start
-                                             
-                        
                     '
-                    """
+                    '''
                 }
             }
         }
-
     }
 }
