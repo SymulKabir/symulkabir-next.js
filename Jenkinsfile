@@ -25,11 +25,16 @@ pipeline {
                     url: 'https://github.com/SymulKabir/symulkabir-next.js.git'
             }
         }
-
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm install'
+            }
+        }
+     
         stage('Build & Deploy') {
             steps {
                 sshagent(['micple-server']) {
-                    sh '''
+                    sh """
                     ssh -o StrictHostKeyChecking=no root@micple.com '
                         mkdir -p /var/www/myapp
                         cd /var/www/myapp
@@ -38,18 +43,16 @@ pipeline {
                         else
                             git clone https://github.com/SymulKabir/symulkabir-next.js.git /var/www/myapp
                         fi
-
-                        WORKDIR="/var/www/myapp"
-                        cd "$WORKDIR"
-
-                        export PATH="/root/.nvm/versions/node/v14.21.3/bin:$PATH"
-                        npm install
-                        pm2 start "npm start" --name "myapp"
-
+                        docker build -t myapp ./
+                        docker stop myapp || true
+                        docker rm myapp || true
+                        docker run -d -p 3000:3000 --name myapp myapp
+                        
                     '
-                    '''
+                    """
                 }
             }
         }
+
     }
 }
