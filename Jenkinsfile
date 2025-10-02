@@ -49,8 +49,7 @@ pipeline {
                         npm install
                         npm run build
                         npm start
-                                            
-                        pm2 start "npm start" --name myapp
+                                             
                         
                     '
                     """
