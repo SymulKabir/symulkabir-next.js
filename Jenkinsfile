@@ -45,11 +45,11 @@ pipeline {
             }
         }
 
-        // stage('Lint & Test') {
-        //     steps {
-        //         sh 'npm run lint || true'
-        //     }
-        // }
+        stage('Lint & Test') {
+            steps {
+                sh 'npm run lint || true'
+            }
+        }
      
         stage('Build & Deploy') {
             steps {
