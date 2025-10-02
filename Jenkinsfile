@@ -42,7 +42,9 @@ pipeline {
                         WORKDIR="/var/www/myapp"
                         cd "$WORKDIR"
 
+                        export PATH="/root/.nvm/versions/node/v14.21.3/bin:$PATH"
                         npm install
+                        pm2 start "npm start" --name "myapp"
 
                     '
                     '''
