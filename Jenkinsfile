@@ -28,22 +28,22 @@ pipeline {
                     url: 'https://github.com/SymulKabir/symulkabir-next.js.git'
             }
         }
-        stage('Install Dependencies') {
-            steps {
-                sh 'npm install'
-            }
-        }
-        stage('Build') {
-            steps {
-                sh 'npm run build'
-            }
-        }
+        // stage('Install Dependencies') {
+        //     steps {
+        //         sh 'npm install'
+        //     }
+        // }
+        // stage('Build') {
+        //     steps {
+        //         sh 'npm run build'
+        //     }
+        // }
 
-        stage('Lint & Test') {
-            steps {
-                sh 'npm run lint || true'
-            }
-        }
+        // stage('Lint & Test') {
+        //     steps {
+        //         sh 'npm run lint || true'
+        //     }
+        // }
      
         stage('Build & Deploy') {
             steps {
