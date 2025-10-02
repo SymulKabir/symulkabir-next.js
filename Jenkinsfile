@@ -5,6 +5,9 @@ pipeline {
         timestamps()
         disableConcurrentBuilds()
     }
+    tools {
+        nodejs "node22.16.0"   // 👈 matches the name you set in Global Tool Configuration
+    }
 
     triggers {
         pollSCM('H/2 * * * *')
