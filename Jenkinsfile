@@ -43,10 +43,8 @@ pipeline {
                         else
                             git clone https://github.com/SymulKabir/symulkabir-next.js.git /var/www/myapp
                         fi
-                        docker build -t myapp ./
-                        docker stop myapp || true
-                        docker rm myapp || true
-                        docker run -d -p 3000:3000 --name myapp myapp
+                        export PATH="/root/.nvm/versions/node/v14.21.3/bin:$PATH"
+                        npm install
                         
                     '
                     """
