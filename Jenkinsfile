@@ -28,6 +28,12 @@ pipeline {
                     url: 'https://github.com/SymulKabir/symulkabir-next.js.git'
             }
         }
+        stage('Node & NPM Version') {
+            steps {
+                sh 'node -v'
+                sh 'npm -v'
+            }
+        }
         // stage('Install Dependencies') {
         //     steps {
         //         sh 'npm install'
