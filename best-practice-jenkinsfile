@@ -1,0 +1,113 @@
+pipeline {
+    agent any
+
+    options {
+        timestamps()
+        disableConcurrentBuilds()
+    }
+
+    tools {
+        nodejs "node22.16.0"
+    }
+
+    triggers {
+        pollSCM('H/2 * * * *')
+    }
+
+    environment {
+        APP_NAME = "myapp"
+        DOCKER_REGISTRY = "registry.example.com"   // 🔑 Change to your registry
+        REGISTRY_CREDENTIALS = "docker-registry-cred"
+        SSH_CREDENTIALS = "micple-server"
+        REMOTE_HOST = "root@micple.com"
+        DEPLOY_DIR = "/var/www/myapp"
+        IMAGE_TAG = "${env.BUILD_NUMBER}"  // use build number or commit SHA
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'master',
+                    credentialsId: 'github-access-token',
+                    url: 'https://github.com/SymulKabir/symulkabir-next.js.git'
+            }
+        }
+
+        stage('Node & NPM Version') {
+            steps {
+                sh 'node -v'
+                sh 'npm -v'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm ci'
+            }
+        }
+
+        stage('Lint & Test') {
+            steps {
+                sh 'npm run lint'
+                sh 'npm test'
+            }
+        }
+
+        stage('Build App') {
+            steps {
+                sh 'npm run build'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    docker.withRegistry("https://${DOCKER_REGISTRY}", "${REGISTRY_CREDENTIALS}") {
+                        def appImage = docker.build("${DOCKER_REGISTRY}/${APP_NAME}:${IMAGE_TAG}")
+                        appImage.push()
+                        appImage.push("latest")
+                    }
+                }
+            }
+        }
+
+        stage('Deploy to Server') {
+            steps {
+                sshagent([SSH_CREDENTIALS]) {
+                    sh """
+                    ssh -o StrictHostKeyChecking=no ${REMOTE_HOST} '
+                        docker pull ${DOCKER_REGISTRY}/${APP_NAME}:${IMAGE_TAG}
+                        docker pull ${DOCKER_REGISTRY}/${APP_NAME}:latest
+
+                        # Blue/Green strategy
+                        NEW_CONTAINER=\${APP_NAME}_\$(date +%s)
+
+                        docker run -d -p 3000:3000 --name \$NEW_CONTAINER ${DOCKER_REGISTRY}/${APP_NAME}:${IMAGE_TAG}
+
+                        # Wait for container health (adjust if you add HEALTHCHECK in Dockerfile)
+                        sleep 10
+
+                        # Stop old container if running
+                        if docker ps -q -f name=${APP_NAME}; then
+                            docker stop ${APP_NAME} || true
+                            docker rm ${APP_NAME} || true
+                        fi
+
+                        # Rename new container as main
+                        docker rename \$NEW_CONTAINER ${APP_NAME}
+                    '
+                    """
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "✅ Deployment successful!"
+        }
+        failure {
+            echo "❌ Deployment failed!"
+        }
+    }
+}

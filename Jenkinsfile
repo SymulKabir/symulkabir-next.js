@@ -18,6 +18,7 @@ pipeline {
         DOCKER_IMAGE = "myapp:latest"
         REMOTE_HOST = "root@micple.com"
         DEPLOY_DIR = "/var/www/myapp"
+        NOTIFY_EMAIL = "saimonpranta@gmail.com"
     }
 
     stages {
@@ -74,5 +75,32 @@ pipeline {
             }
         }
 
+    }
+    post {
+        success {
+            echo "✅ Deployment successful!"
+        }
+        failure {
+            echo "❌ Deployment failed!"
+            emailext (
+                to: "${NOTIFY_EMAIL}",
+                subject: "❌ Deployment Failed: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: """
+                Hello,
+
+                The deployment for job *${env.JOB_NAME}* (build #${env.BUILD_NUMBER}) has **FAILED**.
+
+                Details:
+                - Job: ${env.JOB_NAME}
+                - Build: ${env.BUILD_NUMBER}
+                - URL: ${env.BUILD_URL}
+
+                Please check the Jenkins logs for troubleshooting.
+
+                Regards,  
+                Jenkins CI/CD
+                """
+            )
+        }
     }
 }
